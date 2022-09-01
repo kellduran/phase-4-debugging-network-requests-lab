@@ -1,3 +1,5 @@
+Toy.destroy_all
+
 puts "🤠 Seeding toys..."
 
 Toy.create([

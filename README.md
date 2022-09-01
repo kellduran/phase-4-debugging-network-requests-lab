@@ -64,6 +64,14 @@ developing your own process.
 
   - How I debugged:
 
+  I attempted to add a new toy using the form in the browser. Looking at the console and network I was able to see that we had a 500 internal server error.
+
+  This prompted me to look at my server logs and see what happened on the back-end when I attempted to create my toy. 
+
+  There was an error message about an uninitalized constant in toys_controller at line 10. 
+
+  I went into the toys_controller.rb file and looked at line 10 in the create method. There was a typo "Toys.create" was in the file instead of the singular Toy.create because we are creating a new instance of the class Toy. 
+
 - Update the number of likes for a toy
 
   - How I debugged:
@@ -71,3 +79,10 @@ developing your own process.
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+In the browser I hit donate to Goodwill got a 404 error that the toy was not found
+
+Then I checked the database to make sure the toy existed
+
+Then I checked the routes.rb file to ensure that an appropriate route existed. I updated the routes.rb file to resources :toys and removed the only qualifer. 
+
+I then attempted to donate the toy agian and it was gone from the front-end. So I checked to make sure that it was also gone from the back-end. 
